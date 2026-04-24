@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { rateLimitGuard } from '../src/guards/rate-limit.js';
 
 describe('rateLimitGuard', () => {
@@ -12,13 +12,17 @@ describe('rateLimitGuard', () => {
     const config = { windowMs: 1000, max: 2 };
     expect(() => rateLimitGuard('client2', config)).not.toThrow();
     expect(() => rateLimitGuard('client2', config)).not.toThrow();
-    expect(() => rateLimitGuard('client2', config)).toThrow('Rate limit exceeded');
+    expect(() => rateLimitGuard('client2', config)).toThrow(
+      'Rate limit exceeded',
+    );
   });
 
   it('separates limits by client identifier', () => {
     const config = { windowMs: 1000, max: 1 };
     expect(() => rateLimitGuard('client3', config)).not.toThrow();
-    expect(() => rateLimitGuard('client3', config)).toThrow('Rate limit exceeded');
+    expect(() => rateLimitGuard('client3', config)).toThrow(
+      'Rate limit exceeded',
+    );
     expect(() => rateLimitGuard('client4', config)).not.toThrow(); // different client
   });
 });

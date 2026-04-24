@@ -1,6 +1,9 @@
 import type { SecretsRedactionConfig } from '../types.js';
 
-export function secretsRedactor(payload: any, config: SecretsRedactionConfig | boolean): any {
+export function secretsRedactor(
+  payload: any,
+  config: SecretsRedactionConfig | boolean,
+): any {
   if (config === false) return payload;
   const cfg = config === true ? { patterns: [] } : config;
 
@@ -17,9 +20,11 @@ export function secretsRedactor(payload: any, config: SecretsRedactionConfig | b
         result = result.replace(globalPattern, '[REDACTED]');
       }
       return result;
-    } else if (Array.isArray(obj)) {
+    }
+    if (Array.isArray(obj)) {
       return obj.map(redact);
-    } else if (obj !== null && typeof obj === 'object') {
+    }
+    if (obj !== null && typeof obj === 'object') {
       const cloned: any = {};
       for (const key in obj) {
         if (Object.prototype.hasOwnProperty.call(obj, key)) {

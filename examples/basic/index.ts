@@ -1,11 +1,11 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
-import { shield, presets } from '../../src/index.js';
+import { presets, shield } from '../../src/index.js';
 
 // Create a server
 const server = new McpServer({
   name: 'example-server-with-shield',
-  version: '1.0.0'
+  version: '1.0.0',
 });
 
 // Attach the shield middleware using the strict preset
@@ -14,7 +14,7 @@ const shieldMiddleware = shield(presets.strict);
 
 server.tool('fetch_url', { url: z.string() }, async ({ url }) => {
   return {
-    content: [{ type: 'text', text: `Fetched content from ${url}` }]
+    content: [{ type: 'text', text: `Fetched content from ${url}` }],
   };
 });
 
