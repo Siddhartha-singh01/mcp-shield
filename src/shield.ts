@@ -7,8 +7,7 @@ import { logger } from './logger.js';
 import type { ShieldConfig } from './types.js';
 
 export function shield(config: ShieldConfig) {
-  // Returns a generic middleware wrapper. For MCP SDK, you might
-  // wrap specific handlers or monkey-patch setRequestHandler.
+
   return async function shieldMiddleware(
     req: any,
     ctx: any,
