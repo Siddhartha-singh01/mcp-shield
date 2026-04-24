@@ -1,5 +1,5 @@
 {
-  "name": "@siddhartha/mcp-shield",
+  "name": "@siddharthasingh/mcp-shield",
   "version": "0.1.0-alpha.0",
   "description": "Security middleware for MCP servers in one line.",
   "type": "module",

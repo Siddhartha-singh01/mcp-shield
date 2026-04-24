@@ -1,4 +1,4 @@
-# @siddhartha/mcp-shield
+# @siddharthasingh/mcp-shield
 
 > **Security middleware for MCP servers in one line.**
 
@@ -10,14 +10,14 @@ Anyone publishing an MCP server to production, such as startups, enterprise plat
 
 ### Installation
 ```bash
-npm install @siddhartha/mcp-shield
+npm install @siddharthasingh/mcp-shield
 ```
 
 ### Public API
 
 ```ts
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { shield, presets } from '@siddhartha/mcp-shield';
+import { shield, presets } from '@siddharthasingh/mcp-shield';
 
 const server = new McpServer({ name: 'my-server', version: '1.0.0' });
 

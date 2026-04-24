@@ -1,4 +1,4 @@
-# @siddhartha/mcp-shield
+# @siddharthasingh/mcp-shield
 
 ## 0.1.0-alpha.0
 
